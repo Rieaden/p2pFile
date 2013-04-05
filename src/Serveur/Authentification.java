@@ -44,7 +44,7 @@ public class Authentification implements Runnable {
             }
             else {out.println("erreur"); out.flush();}
          }
-            t2 = new Thread(new Chat_ClientServeur(socket,login));
+            t2 = new Thread(new ServeurClient(socket,login));
             t2.start();
              
         } catch (IOException e) {

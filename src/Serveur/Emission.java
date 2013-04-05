@@ -23,7 +23,8 @@ public class Emission implements Runnable {
     public void run() {
          
            
-          while(true){
+          while(true)
+          	{
         	    File[] listFiles = Serveur.getListeFichiersServeur();
         	    if(!listFiles.equals(cacheListeFichiersServeur))
         	    {
@@ -32,6 +33,7 @@ public class Emission implements Runnable {
                 	    out.println(listFiles[i].getName());
             	    }
                     out.flush();
+                    cacheListeFichiersServeur=listFiles;
         	    }
               }
     }

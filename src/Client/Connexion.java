@@ -52,7 +52,7 @@ public class Connexion implements Runnable {
          
     }
              
-            t2 = new Thread(new Chat_ClientServeur(socket));
+            t2 = new Thread(new ClientServeur(socket));
             t2.start();
          
         } catch (IOException e) {

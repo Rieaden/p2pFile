@@ -22,7 +22,7 @@ public class Emission implements Runnable {
            
           while(true){
                 System.out.println("Votre message :");
-                message = sc.nextLine();
+               // message = sc.nextLine();
                 out.println(message);
                 out.flush();
               }

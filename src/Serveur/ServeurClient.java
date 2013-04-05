@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
  
  
-public class Chat_ClientServeur implements Runnable {
+public class ServeurClient implements Runnable {
  
     private Socket socket = null;
     private BufferedReader in = null;
@@ -16,7 +16,7 @@ public class Chat_ClientServeur implements Runnable {
     private Thread t3, t4;
      
      
-    public Chat_ClientServeur(Socket s, String log){
+    public ServeurClient(Socket s, String log){
          
         socket = s;
         login = log;

@@ -5,14 +5,14 @@ import java.net.*;
 import java.util.Scanner;
  
  
-public class Chat_ClientServeur implements Runnable {
+public class ClientServeur implements Runnable {
  
     private Socket socket;
     private PrintWriter out = null;
     private BufferedReader in = null;
     private Thread t3, t4;
      
-    public Chat_ClientServeur(Socket s){
+    public ClientServeur(Socket s){
         socket = s;
     }
      
