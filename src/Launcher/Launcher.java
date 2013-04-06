@@ -22,7 +22,7 @@ import Client.*;
 
 public class Launcher extends Application {
 
-    public static Thread t;
+	public static Thread t;
 	/**
 	 * @param args
 	 */
@@ -30,11 +30,11 @@ public class Launcher extends Application {
 	{
 		launch(args);
 	}
-	
+
 
 	@Override
 	public void start(final Stage primaryStage) throws Exception {
-		
+
 		primaryStage.setTitle("P2P File Sharing debbache"); 
 		final TextField tfPort = new TextField();
 		final TextField tfIp = new TextField();
@@ -44,13 +44,13 @@ public class Launcher extends Application {
 		Label lblFichier = new Label("Nom fichier à créer");
 		Button boutonCreer = new Button("Creer");
 		Button boutonGo = new Button("Go");
-		
+
 		final Group root = new Group();  
 		GridPane grid = new GridPane();
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(30, 5, 5, 5));
-		
+
 		grid.add(lblPort, 0, 0);
 		grid.add(lblIp, 0, 1);
 		grid.add(lblFichier, 0, 2);
@@ -59,29 +59,30 @@ public class Launcher extends Application {
 		grid.add(tfFichierACreer, 1, 2);
 		grid.add(boutonGo, 1, 3);
 		grid.add(boutonCreer, 2,2);
-		
+
 		root.getChildren().add(grid);
 		Scene MyScene = new Scene(root, 300, 150);
 
 		primaryStage.setScene(MyScene);
 		primaryStage.show();
-		
+
 		boutonCreer.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg0) 
 			{
 				try {
-					(new File("src/Serveur/data" + tfFichierACreer)).createNewFile();
+					(new File("src/Serveur/data/" + tfFichierACreer.getText())).createNewFile();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		});
-		
-		boutonGo.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		boutonGo.setOnAction(new EventHandler<ActionEvent>() 
+				{
+
 			@Override
 			public void handle(ActionEvent event) 
 			{
@@ -93,13 +94,13 @@ public class Launcher extends Application {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				t = new Thread(new Client(tfIp.getText()));
 				t.start();
 			}
-		});
-		
-		
+				});
+
+
 	}
 
 }
